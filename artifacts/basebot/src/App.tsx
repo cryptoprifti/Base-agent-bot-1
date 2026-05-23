@@ -43,9 +43,13 @@ function App() {
   useEffect(() => {
     const init = async () => {
       try {
-        await sdk.actions.ready();
+        // Resolve context first to establish connection with frame host
+        const context = await sdk.context;
+        console.log("Farcaster frame context:", context);
+        // Then signal the frame host that the app is ready
+        sdk.actions.ready();
       } catch (e) {
-        // Not in a Farcaster frame context — this is fine
+        console.log("Not in a Farcaster frame context", e);
       }
       setIsSDKLoaded(true);
     };
@@ -57,7 +61,7 @@ function App() {
     try {
       initTelegram();
     } catch (e) {
-      // Not in Telegram Mini App context — this is fine
+      // Not in Telegram Mini App context
     }
   }, [isSDKLoaded]);
 
