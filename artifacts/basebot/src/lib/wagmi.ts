@@ -15,6 +15,9 @@ export const wagmiConfig = createConfig({
       appName: "BaseBot",
       appLogoUrl: "https://base.org/favicon.ico",
       preference: 'all',
+      attribution: {
+        dataSuffix: "0x0b62635f67303168703478350080218021802180218021802180218021",
+      },
     }),
   ],
   transports: {
