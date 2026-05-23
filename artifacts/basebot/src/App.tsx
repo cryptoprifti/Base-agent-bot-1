@@ -9,7 +9,7 @@ import { About } from "@/pages/About";
 import { Features } from "@/pages/Features";
 import { Contact } from "@/pages/Contact";
 import { wagmiConfig } from "@/lib/wagmi";
-import sdk from "@farcaster/frame-sdk";
+import { sdk } from "@farcaster/miniapp-sdk";
 import { init as initTelegram } from "@telegram-apps/sdk";
 
 const queryClient = new QueryClient();
