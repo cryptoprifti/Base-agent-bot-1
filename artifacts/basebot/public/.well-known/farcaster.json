@@ -1,0 +1,21 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjEzMTQ0OTMsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHg0YjVjOTFmNTY2OWIxYkFCM2MxQzU0QzM4RjhmODM4YjUyMjI5OGE3In0",
+    "payload": "eyJkb21haW4iOiJiYXNlLWFnZW50LWJvdC1saWFyZC52ZXJjZWwuYXBwIn0",
+    "signature": "ZpsJe8m4dGMvDYulnm0uAwI3tz+6JbLWLOdRfQDj124aaXIZtkC49BIZb1ofycjF90sSA9X14l/Y76/JfozVNRw="
+  },
+  "frame": {
+    "version": "1",
+    "name": "BaseBot",
+    "iconUrl": "https://base-agent-bot-liard.vercel.app/favicon.svg",
+    "homeUrl": "https://base-agent-bot-liard.vercel.app/",
+    "splashImageUrl": "https://base-agent-bot-liard.vercel.app/favicon.svg",
+    "splashBackgroundColor": "#0052FF",
+    "subtitle": "AI Agent on Base",
+    "description": "BaseBot is an autonomous AI agent that executes onchain actions on Base — transfers, swaps, mints, and staking.",
+    "primaryCategory": "developer-tools",
+    "tags": ["base", "ai", "agent", "defi", "onchain"],
+    "heroImageUrl": "https://base-agent-bot-liard.vercel.app/opengraph.jpg",
+    "tagline": "Your AI-powered onchain agent on Base"
+  }
+}
