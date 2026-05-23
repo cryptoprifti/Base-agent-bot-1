@@ -1,6 +1,6 @@
 {
-  "buildCommand": "pnpm --filter @workspace/basebot run build",
-  "outputDirectory": "artifacts/basebot/dist/public",
+  "buildCommand": "pnpm --filter @workspace/basebot run build && cp -r artifacts/basebot/dist/public dist",
+  "outputDirectory": "dist",
   "installCommand": "pnpm install",
   "framework": null,
   "rewrites": [
