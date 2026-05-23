@@ -1,0 +1,72 @@
+import { useEffect } from "react";
+import { Switch, Route, Router as WouterRouter } from "wouter";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { WagmiProvider } from "wagmi";
+import { ThemeProvider } from "next-themes";
+import { Navbar } from "@/components/Navbar";
+import { Home } from "@/pages/Home";
+import { About } from "@/pages/About";
+import { Features } from "@/pages/Features";
+import { Contact } from "@/pages/Contact";
+import { wagmiConfig } from "@/lib/wagmi";
+import sdk from "@farcaster/frame-sdk";
+import { init as initTelegram } from "@telegram-apps/sdk";
+
+const queryClient = new QueryClient();
+
+function NotFound() {
+  return (
+    <div className="flex min-h-screen items-center justify-center">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold gradient-text">404</h1>
+        <p className="mt-2 text-muted-foreground">Page not found</p>
+      </div>
+    </div>
+  );
+}
+
+function Router() {
+  return (
+    <Switch>
+      <Route path="/" component={Home} />
+      <Route path="/about" component={About} />
+      <Route path="/features" component={Features} />
+      <Route path="/contact" component={Contact} />
+      <Route component={NotFound} />
+    </Switch>
+  );
+}
+
+function App() {
+  useEffect(() => {
+    const initFarcaster = async () => {
+      try {
+        await sdk.actions.ready();
+      } catch (e) {
+        console.log("Farcaster SDK not ready or not in a frame", e);
+      }
+    };
+    initFarcaster();
+
+    try {
+      initTelegram();
+    } catch (e) {
+      console.log("Telegram SDK not initialized or not in TMA", e);
+    }
+  }, []);
+
+  return (
+    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+      <WagmiProvider config={wagmiConfig}>
+        <QueryClientProvider client={queryClient}>
+          <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+            <Navbar />
+            <Router />
+          </WouterRouter>
+        </QueryClientProvider>
+      </WagmiProvider>
+    </ThemeProvider>
+  );
+}
+
+export default App;
