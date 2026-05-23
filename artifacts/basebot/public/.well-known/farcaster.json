@@ -16,6 +16,6 @@
     "primaryCategory": "developer-tools",
     "tags": ["base", "ai", "agent", "defi", "onchain"],
     "heroImageUrl": "https://base-agent-bot-liard.vercel.app/opengraph.jpg",
-    "tagline": "Your AI-powered onchain agent on Base"
+    "tagline": "AI agent on Base"
   }
 }
