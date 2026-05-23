@@ -1,0 +1,9 @@
+{
+  "buildCommand": "pnpm --filter @workspace/basebot run build",
+  "outputDirectory": "artifacts/basebot/dist/public",
+  "installCommand": "pnpm install",
+  "framework": null,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
