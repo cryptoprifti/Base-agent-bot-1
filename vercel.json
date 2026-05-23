@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm --filter @workspace/basebot run build && mkdir -p public && cp -r artifacts/basebot/dist/public/* public/",
+  "buildCommand": "cd artifacts/basebot && pnpm run build && cp -r dist/public ../../public",
   "outputDirectory": "public",
   "installCommand": "pnpm install",
   "framework": null,
