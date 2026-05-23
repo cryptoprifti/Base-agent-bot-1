@@ -1,4 +1,6 @@
-import OpenAI from "openai";
+import * as OpenAIModule from "openai";
+
+const OpenAI = (OpenAIModule as any).default ?? OpenAIModule;
 
 if (!process.env.AI_INTEGRATIONS_OPENAI_BASE_URL) {
   throw new Error(
