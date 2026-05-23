@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Switch, Route, Router as WouterRouter } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WagmiProvider } from "wagmi";
@@ -38,22 +38,28 @@ function Router() {
 }
 
 function App() {
+  const [isSDKLoaded, setIsSDKLoaded] = useState(false);
+
   useEffect(() => {
-    const initFarcaster = async () => {
+    const init = async () => {
       try {
         await sdk.actions.ready();
       } catch (e) {
-        console.log("Farcaster SDK not ready or not in a frame", e);
+        // Not in a Farcaster frame context — this is fine
       }
+      setIsSDKLoaded(true);
     };
-    initFarcaster();
+
+    if (!isSDKLoaded) {
+      init();
+    }
 
     try {
       initTelegram();
     } catch (e) {
-      console.log("Telegram SDK not initialized or not in TMA", e);
+      // Not in Telegram Mini App context — this is fine
     }
-  }, []);
+  }, [isSDKLoaded]);
 
   return (
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
