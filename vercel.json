@@ -1,6 +1,6 @@
 {
-  "buildCommand": "cd artifacts/basebot && pnpm run build && cp -r dist/public ../../public",
-  "outputDirectory": "public",
+  "buildCommand": "cd artifacts/basebot && pnpm run build",
+  "outputDirectory": "artifacts/basebot/dist/public",
   "installCommand": "pnpm install",
   "framework": null,
   "rewrites": [
